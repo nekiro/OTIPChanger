@@ -1,0 +1,95 @@
+﻿<Window x:Class="OTIPChanger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OTIPChanger"
+        mc:Ignorable="d"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="14"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        Background="{DynamicResource MaterialDesignPaper}"
+        FontFamily="{DynamicResource MaterialDesignFont}"
+    Title="OTIPChanger" Height="385" Width="450" ResizeMode="NoResize" WindowStyle="None" MouseLeftButtonDown="Window_MouseDown" WindowStartupLocation="CenterScreen">
+    <StackPanel>
+        <Grid VerticalAlignment="Top" Background="#424242">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2.5*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="0" VerticalAlignment="Center" Margin="10,0"> OT IP Changer </TextBlock>
+            <Button Grid.Column="1" Margin="5,5" Width="100" HorizontalAlignment="Center" Click="CreditsClick">
+                Credits
+            </Button>
+            <Button Grid.Column="2" Width="50" HorizontalAlignment="Right" Click="MinimizeApp">
+                <materialDesign:PackIcon Kind="WindowMinimize"/>
+            </Button>
+            <Button Grid.Column="3" Margin="5,5" Width="50" HorizontalAlignment="Right" Click="ExitApp">
+                <materialDesign:PackIcon Kind="ExitToApp"/>
+            </Button>
+        </Grid>
+
+        <materialDesign:Card Padding="20" Margin="10,5">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="350">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0"  HorizontalAlignment="Center">Path to client</TextBlock>
+                <TextBox FontWeight="Bold" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}" Name="PathToClient" Grid.Row="1" Grid.Column="0" IsReadOnly="True"/>
+                <Button Grid.Row="1" Margin="10,0" Grid.Column="1" Click="BrowseClient">
+                    <materialDesign:PackIcon Kind="OpenInNew"/>
+                </Button>
+            </Grid>
+        </materialDesign:Card>
+
+        <materialDesign:Card Padding="20" Margin="10, 5">
+            <Grid HorizontalAlignment="Center" VerticalAlignment="Center" Width="380">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center">Login url</TextBlock>
+                <TextBox MaxLength="53" FontWeight="Bold" FontSize="13" Name="LoginUrl" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}" Grid.Row="1" Grid.Column="0"/>
+            </Grid>
+        </materialDesign:Card>
+
+        <materialDesign:Card Padding="20" Margin="10,5">
+            <Grid Width="380" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center">Service url</TextBlock>
+                <TextBox MaxLength="55" FontWeight="Bold" FontSize="13" Name="ServiceUrl" ToolTip="{Binding RelativeSource={RelativeSource Self}, Path=Text}" Grid.Row="1" Grid.Column="0"/>
+            </Grid>
+        </materialDesign:Card>
+
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Margin="10, 10" Grid.Column="0" Click="TryChangeIp">Change IP</Button>
+            <CheckBox Name="SaveAsNewFileCheck" Checked="OnCheckChange" Unchecked="OnCheckChange" Grid.Column="1">Save as new file</CheckBox>
+        </Grid>
+    </StackPanel>
+</Window>
+    
