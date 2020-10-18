@@ -5,6 +5,7 @@ Small .Net Core app that let you change your client 12 web services and RSA key 
 Technologies:
   - .Net Core 3.1
   - C#
+  - WPF
 
 ## How To Compile
 It's actually pretty simple.
