@@ -13,7 +13,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-    Title="OTIPChanger" Height="385" Width="450" ResizeMode="NoResize" WindowStyle="None" MouseLeftButtonDown="OnWindowMouseDown" WindowStartupLocation="CenterScreen" >
+    Title="OTIPChanger" Height="385" Width="450" ResizeMode="NoResize" WindowStyle="None" MouseLeftButtonDown="OnWindowMouseDown" WindowStartupLocation="CenterScreen" Closing="OnWindowClosing">
     <StackPanel>
         <Grid VerticalAlignment="Top" Background="#424242">
             <Grid.ColumnDefinitions>

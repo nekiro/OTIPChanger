@@ -19,16 +19,27 @@ namespace OTIPChanger
         {
             InitializeComponent();
             _ipChanger = new IpChanger();
+            Init();
+        }
 
-            if (File.Exists(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Tibia\packages\Tibia\bin\client.exe"))
+        private void Init()
+        {
+            string path = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Tibia\packages\Tibia\bin\client.exe";
+            if (ConfigurationHandler.LoadConfiguration())
             {
-                SetClientData(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Tibia\packages\Tibia\bin\client.exe");
+                path = ConfigurationHandler.GetPath();
+                SaveAsNewFileCheck.IsChecked = ConfigurationHandler.GetSaveAsNewFile();
+            }
+
+            if (File.Exists(path))
+            {
+                SetClientData(path);
             }
         }
 
         private void ExitApp(object sender, RoutedEventArgs e)
         {
-            Environment.Exit(0);
+            Application.Current.Shutdown();
         }
 
         private void MinimizeApp(object sender, RoutedEventArgs e)
@@ -51,6 +62,9 @@ namespace OTIPChanger
             PathToClient.Text = path;
             LoginUrl.Text = loginUrl;
             ServiceUrl.Text = webUrl;
+
+            // update config
+            ConfigurationHandler.SetPath(path);
         }
 
         private void TryChangeIp(object sender, RoutedEventArgs e)
@@ -75,6 +89,7 @@ namespace OTIPChanger
             }
 
             _ipChanger.SaveAsNewFile = checkbox.IsChecked == true;
+            ConfigurationHandler.SetSaveAsNewFile(_ipChanger.SaveAsNewFile);
         }
 
         private void OnWindowMouseDown(object sender, MouseButtonEventArgs e)
@@ -87,5 +102,9 @@ namespace OTIPChanger
             MessageBox.Show("This app was brought to you by nekiro!\nhttps://github.com/nekiro\n\nThanks for using.", "Credits");
         }
 
+        private void OnWindowClosing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            ConfigurationHandler.SaveConfiguration();
+        }
     }
 }
