@@ -64,18 +64,8 @@ namespace OTIPChanger
 
             MessageBox.Show(msg, "Success");
         }
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
-        }
-
-        private void CreditsClick(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("This app was brought to you by nekiro!\nhttps://github.com/nekiro\n\nThanks for using.", "Credits");
-        }
-
+     
+        // events
         private void OnCheckChange(object sender, RoutedEventArgs e)
         {
             var checkbox = sender as CheckBox;
@@ -86,5 +76,16 @@ namespace OTIPChanger
 
             _ipChanger.SaveAsNewFile = checkbox.IsChecked == true;
         }
+
+        private void OnWindowMouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
+
+        private void OnCreditsClick(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("This app was brought to you by nekiro!\nhttps://github.com/nekiro\n\nThanks for using.", "Credits");
+        }
+
     }
 }

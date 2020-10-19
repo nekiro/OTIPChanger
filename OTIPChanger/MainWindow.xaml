@@ -13,7 +13,7 @@
         TextOptions.TextRenderingMode="Auto"
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}"
-    Title="OTIPChanger" Height="385" Width="450" ResizeMode="NoResize" WindowStyle="None" MouseLeftButtonDown="Window_MouseDown" WindowStartupLocation="CenterScreen">
+    Title="OTIPChanger" Height="385" Width="450" ResizeMode="NoResize" WindowStyle="None" MouseLeftButtonDown="OnWindowMouseDown" WindowStartupLocation="CenterScreen" >
     <StackPanel>
         <Grid VerticalAlignment="Top" Background="#424242">
             <Grid.ColumnDefinitions>
@@ -23,7 +23,7 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <TextBlock Grid.Column="0" VerticalAlignment="Center" Margin="10,0"> OT IP Changer </TextBlock>
-            <Button Grid.Column="1" Margin="5,5" Width="100" HorizontalAlignment="Center" Click="CreditsClick">
+            <Button Grid.Column="1" Margin="5,5" Width="100" HorizontalAlignment="Center" Click="OnCreditsClick">
                 Credits
             </Button>
             <Button Grid.Column="2" Width="50" HorizontalAlignment="Right" Click="MinimizeApp">
