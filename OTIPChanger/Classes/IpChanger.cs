@@ -79,7 +79,7 @@ namespace OTIPChanger.Classes
         {
             if (string.IsNullOrEmpty(path) || string.IsNullOrEmpty(loginUrl) || string.IsNullOrEmpty(serviceUrl))
             {
-                return (false, "Login url, service url, rsa key or path is empty");
+                return (false, "Login url, service url or path is empty.");
             }
 
             byte[] allBytes = File.ReadAllBytes(path);
