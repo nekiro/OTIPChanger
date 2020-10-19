@@ -5,6 +5,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWPF>true</UseWPF>
     <ApplicationIcon>icon.ico</ApplicationIcon>
+    <Authors>Nekiro</Authors>
+    <Copyright>Nekiro</Copyright>
+    <PackageProjectUrl>https://github.com/nekiro/OTIPChanger</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/nekiro/OTIPChanger</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
