@@ -94,7 +94,7 @@ namespace OTIPChanger
 
         private void OnWindowMouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+            DragMove();
         }
 
         private void OnCreditsClick(object sender, RoutedEventArgs e)
