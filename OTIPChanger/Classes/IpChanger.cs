@@ -61,7 +61,7 @@ namespace OTIPChanger.Classes
                 {
                     for (int i = 0; i < pattern.Length; i++)
                     {
-                        data[pos + i] = i <= replacement.Length - 1 ? replacement[i] : (byte)0x00;
+                        data[pos + i] = i <= replacement.Length - 1 ? replacement[i] : (byte)0x20;
                     }
 
                     pos += pattern.Length - 1;
